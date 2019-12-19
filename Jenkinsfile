@@ -1,29 +1,16 @@
-pipeline {
-  agent { label 'linux' }
-  tools {
-    maven 'M3'
-  }
-  stages {
-    stage('checkout') {
-      steps {
-        git 'https://github.com/effectivejenkins/myProject.git'
-      }
+// 30 Creating & configuring the Jenkinsfile
+
+pipeline {      // declarative pipeline
+    {agent label 'linux'}       // for this build use the node set up with label 'linux' (cf 12 Adding a build node)
+    stages
+    {
+        stage('Hello from Github')
+        {
+            steps
+            {
+                echo 'Hello there world!'
+            }
+        }
     }
-    stage('Build') {
-      steps {
-        sh 'mvn clean compile'
-      }
-    }
-    stage('Test') {
-      steps {
-        sh 'mvn test'
-        junit '**/target/surefire-reports/TEST-*.xml'
-      }
-    }
-    stage('Package') {
-      steps {
-        sh 'mvn package'
-      }
-    }
-  }
+
 }
