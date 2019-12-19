@@ -34,7 +34,10 @@ pipeline {      // declarative pipeline
         }
         stage ('Package')
         {
-            sh 'mvn package'
+            steps
+            {
+                sh 'mvn package'
+            }
         }
     }
 // NB in my Vagrantfile/jenkins.sh I seem to have included JDK and JRE
