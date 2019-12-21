@@ -2,6 +2,7 @@
 
 pipeline {      // declarative pipeline
     //agent { label 'linux'}       // for this build use the node set up with label 'linux' (cf 12 Adding a build node)
+    agent any       // there has to be *some* agent declared, apparently
     // REM out agent line above only for to run on the Digital Ocean Droplet in 52 Automating the pull request verification with Github
     tools
     {
